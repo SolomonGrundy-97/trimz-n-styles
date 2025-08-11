@@ -32,14 +32,14 @@ const WelcomePage = () => {
           className="text-xl mb-3 md:text-6xl font-bold text-white"
           data-aos="fade-right"
         >
-          Welcome to Our Barber Shop
+          Welcome To Our Barber Shop
         </h1>
         <p
-          className="mb-10 text-xl md:text-6xl text-white"
+          className="mb-10 text-sm md:text-6xl text-white"
           data-aos="fade-right"
           data-aos-delay="300"
         >
-          <em>we are the best!</em>
+          <em>Let your hair do the talking...</em>
         </p>
         <div className="" data-aos="fade-left">
           <a

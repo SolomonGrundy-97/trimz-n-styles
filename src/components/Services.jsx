@@ -1,94 +1,109 @@
-import { useState, useEffect } from "react";
-import { ImScissors } from "react-icons/im";
-import { PiMaskSadFill } from "react-icons/pi";
-import { MdOutlineCleaningServices } from "react-icons/md";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import { useEffect, useRef } from "react";
 
-const services = [
+// ADD THE ACTUAL IMAGES AND ADJUST THE IMAGE SIZE...
+const images = [
   {
-    title: "Haircut Styles",
-    icon: <ImScissors className="h-10 w-10 bg-black mb-4" />,
-    description: "Fresh cuts tailored to your look by skilled barbers.",
+    src: "/src/assets/images/trimz_photo.jpg",
+    caption: "Trimz Classic Cuts 1",
   },
   {
-    title: "Beard Trimming",
-    icon: <MdOutlineCleaningServices className="h-10 w-10 bg-black mb-4" />,
-    description: "Keep your beard sharp, clean, and styled just right.",
+    src: "/src/assets/images/trimz_photo.jpg",
+    caption: "Modern Barbering Styles 2",
   },
   {
-    title: "Smooth Shave",
-    icon: <MdOutlineCleaningServices className="h-10 w-10 bg-black mb-4" />,
-    description: "Enjoy a clean, smooth shave with premium care.",
+    src: "/src/assets/images/trimz_photo.jpg",
+    caption: "Your Look, Our Passion 3",
   },
   {
-    title: "Classic Styling",
-    icon: <MdOutlineCleaningServices className="h-10 w-10 bg-black mb-4" />,
-    description: "Classic and modern styles to match your vibe.",
+    src: "/src/assets/images/trimz_photo.jpg",
+    caption: "Clean, Sharp & Fresh 4",
   },
   {
-    title: "Face Masking",
-    icon: <PiMaskSadFill className="h-10 w-10 bg-black mb-4" />,
-    description: "Rejuvenate your skin with a relaxing face mask session.",
+    src: "/src/assets/images/trimz_photo.jpg",
+    caption: "Clean, Sharp & Fresh 5",
+  },
+  {
+    src: "/src/assets/images/trimz_photo.jpg",
+    caption: "Clean, Sharp & Fresh 6",
+  },
+  {
+    src: "/src/assets/images/trimz_photo.jpg",
+    caption: "Clean, Sharp & Fresh 7",
+  },
+  {
+    src: "/src/assets/images/trimz_photo.jpg",
+    caption: "Clean, Sharp & Fresh 8",
   },
 ];
 
-const ServicesSection = () => {
+export default function Carousel() {
+  const trackRef = useRef(null);
+
+  const carouselImages = [...images, ...images]; // duplicate for seamless scroll
+
   useEffect(() => {
-    AOS.init({ duration: 1000, once: false });
+    const keyframes = `
+      @keyframes scrollLeft {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+    `;
+
+    const styleSheet = document.styleSheets[0];
+    if (styleSheet) {
+      styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
+    }
   }, []);
 
-  const [visibleCount, setVisibleCount] = useState(2);
-  const handleShowMore = () => setVisibleCount(services.length);
-
   return (
-    <section
-      className="py-16 px-4 md:px-10 text-center"
-      id="services"
-      data-aos="fade-up"
-      data-aos-delay="200"
-    >
-      <div className="max-w-6xl mx-auto">
-        <p className="text-white font-serif text-xl font-bold">Our Services</p>
-        <div className="flex justify-center items-center mb-5">
-          <span className="w-16 border-t border-yellow-800 mx-2"></span>
-          <span className="text-yellow-800 text-xl">👨‍🔧</span>
-          <span className="w-16 border-t border-yellow-800 mx-2"></span>
-        </div>
+    <section className="" id="services">
+      <p className="text-yellow-400 text-center font-serif text-xl font-bold">
+        Our Services
+      </p>
+      <div className="flex justify-center items-center mb-5">
+        <span className="w-16 border-t border-yellow-400 mx-2"></span>
+        <span className="text-yellow-800 text-xl">👨‍🔧</span>
+        <span className="w-16 border-t border-yellow-400 mx-2"></span>
+      </div>
 
-        {/* Grid on small/medium, flex on large screens */}
-        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-6 lg:flex lg:flex-wrap lg:justify-between px-4 lg:px-0">
-          {services.slice(0, visibleCount).map((service, index) => (
+      <br />
+      <br />
+
+      {/* carousels */}
+      <div className="relative overflow-hidden w-full h-60 sm:h-72 md:h-80 group">
+        <div
+          ref={trackRef}
+          className="flex w-max"
+          style={{
+            animation: "scrollLeft 30s linear infinite",
+            animationPlayState: "running",
+          }}
+          onMouseEnter={() => {
+            if (trackRef.current)
+              trackRef.current.style.animationPlayState = "paused";
+          }}
+          onMouseLeave={() => {
+            if (trackRef.current)
+              trackRef.current.style.animationPlayState = "running";
+          }}
+        >
+          {carouselImages.map((image, index) => (
             <div
               key={index}
-              className="w-full sm:w-full md:w-full lg:w-[23%] mb-6"
+              className="h-full min-w-[250px] sm:min-w-[300px] md:min-w-[350px] flex-shrink-0 flex flex-col items-center px-2"
             >
-              <div className="bg-yellow-400 rounded-lg shadow-md p-6 transition hover:shadow-xl h-full min-h-[320px] flex flex-col justify-center">
-                <div className="flex flex-col items-center bg-black rounded-md p-6 h-full">
-                  {service.icon}
-                  <h3 className="text-xl font-semibold mb-2 text-white text-center">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-300 text-sm text-center italic">
-                    {service.description}
-                  </p>
-                </div>
-              </div>
+              <img
+                src={image.src}
+                className="h-3/4 w-full object-cover rounded-md shadow-md"
+                alt={`Slide ${index + 1}`}
+              />
+              <p className="mt-2 text-center text-sm sm:text-base text-gray-800 font-medium px-2">
+                {image.caption}
+              </p>
             </div>
           ))}
         </div>
-
-        {visibleCount < services.length && (
-          <p
-            onClick={handleShowMore}
-            className="inline-flex items-center text-white hover:text-yellow-400 transition cursor-pointer mb-6"
-          >
-            Show More ↓
-          </p>
-        )}
       </div>
     </section>
   );
-};
-
-export default ServicesSection;
+}

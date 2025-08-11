@@ -31,4 +31,19 @@ module.exports = {
     // ...
     flowbite.plugin(),
   ],
+
+  theme: {
+    extend: {
+      animation: {
+        scroll: 'scrollLeft 30s linear infinite',
+      },
+      keyframes: {
+        scrollLeft: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+      },
+    },
+  },
 };
+

@@ -1,6 +1,44 @@
-// go to emailjs.com to create account and copy the neccesarry tokens in order to make the form receive datas from the users input...
+// import emailjs from '@emailjs/browser';
+
+// export const ContactUs = () => {
+//   const form = useRef();
+
+//   const sendEmail = (e) => {
+//     e.preventDefault();
+
+//     emailjs
+//       .sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, {
+//         publicKey: 'YOUR_PUBLIC_KEY',
+//       })
+//       .then(
+//         () => {
+//           console.log('SUCCESS!');
+//         },
+//         (error) => {
+//           console.log('FAILED...', error.text);
+//         },
+//       );
+//   };
+
+//   return (
+//     <form ref={form} onSubmit={sendEmail}>
+//       <label>Name</label>
+//       <input type="text" name="user_name" />
+//       <label>Email</label>
+//       <input type="email" name="user_email" />
+//       <label>Message</label>
+//       <textarea name="message" />
+//       <input type="submit" value="Send" />
+//     </form>
+//   );
+// };
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 import { useState } from "react";
 import emailjs from "emailjs-com";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { FaWhatsapp } from "react-icons/fa";
 import AppointmentImg from "../assets/images/post-1.jpg";
 
@@ -14,30 +52,63 @@ const AppointmentSection = () => {
     barber: "",
   });
 
+  const [isBooking, setIsBooking] = useState(false);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsBooking(true); // Change button text to "Booking..."
 
-    // EmailJS send
-    emailjs
-      .send(
-        "your_service_id", // ✅ Replace with your EmailJS service ID
-        "your_template_id", // ✅ Replace with your EmailJS template ID
+    try {
+      // Send to Owner
+      await emailjs.send(
+        "service_yvnuqvf", // Service ID
+        "template_ruqaseb", // Owner Template ID
         formData,
-        "your_user_id" // ✅ Replace with your EmailJS public key
-      )
-      .then(
-        (response) => {
-          alert("Appointment sent successfully!");
-        },
-        (error) => {
-          alert("Something went wrong. Please try again.");
+        "Vs0a-OEgg5AzkOTHc" // Public Key
+      );
+      console.log("Owner email sent!");
+
+      // Send to Client
+      await emailjs.send(
+        "service_yvnuqvf", // Same Service ID
+        "template_vl8b6y9", // Client Template ID
+        formData,
+        "Vs0a-OEgg5AzkOTHc" // Same Public Key
+      );
+      console.log("Client email sent!");
+
+      // Show success toast
+      toast.success(
+        "😀 Thanks for booking! A confirmation email has been sent to you.",
+        {
+          position: "top-right",
+          autoClose: 3000,
         }
       );
+
+      // Clear form
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        time: "",
+        service: "",
+        barber: "",
+      });
+    } catch (err) {
+      console.error("Error sending emails", err);
+      toast.error("❌ Something went wrong. Please try again.", {
+        position: "top-right",
+        autoClose: 3000,
+      });
+    } finally {
+      setIsBooking(false); // Restore button text
+    }
   };
 
   return (
@@ -56,7 +127,7 @@ const AppointmentSection = () => {
 
       {/* Right Form */}
       <div className="w-full md:w-1/2 bg-[#1e1e1e] px-6 py-16 md:px-12 lg:px-20 flex flex-col justify-center">
-        <h2 className="text-3xl lg:text-4xl text-white font-bold mb-4 leading-normal">
+        <h2 className=" text-xl lg:text-4xl text-white font-bold mb-4 leading-normal">
           Make an Appointment
         </h2>
         <p className="text-yellow-400 mb-10 text-base">
@@ -98,7 +169,7 @@ const AppointmentSection = () => {
           <input
             type="text"
             name="time"
-            placeholder="Your Free Time"
+            placeholder="Your Free Time & Day"
             value={formData.time}
             onChange={handleChange}
             className="p-3 mt-2 rounded-md bg-[#2a2a2a] border border-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-600"
@@ -141,15 +212,16 @@ const AppointmentSection = () => {
           <div className="md:col-span-2 mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4">
             <button
               type="submit"
-              className="px-6 py-3 bg-yellow-600 hover:bg-yellow-700 rounded-md text-white font-semibold transition duration-300 ease-in-out shadow-md"
+              disabled={isBooking}
+              className="px-6 py-3 bg-yellow-400 hover:bg-yellow-600 rounded-md text-white font-semibold transition duration-300 ease-in-out shadow-md"
             >
-              MAKE APPOINTMENT
+              {isBooking ? "BOOKING..." : "MAKE APPOINTMENT"}
             </button>
             <a
-              href="https://wa.me/2349097441714"
+              href="https://wa.me/+2349097441714"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-md shadow-md transition duration-300"
+              className="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-800 text-white rounded-md shadow-md transition duration-300"
             >
               <FaWhatsapp size={20} />
               Chat on WhatsApp

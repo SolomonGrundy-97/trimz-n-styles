@@ -1,153 +1,5 @@
-// import {
-//   FaFacebookF,
-//   FaInstagram,
-//   FaTiktok,
-//   FaWhatsapp,
-//   FaArrowUp,
-// } from "react-icons/fa";
-// import { useEffect, useState } from "react";
-
-// export default function Footer() {
-//   const [showButton, setShowButton] = useState(false);
-
-//   // Show button after scrolling down
-//   useEffect(() => {
-//     const handleScroll = () => {
-//       setShowButton(window.scrollY > 300);
-//     };
-//     window.addEventListener("scroll", handleScroll);
-//     return () => window.removeEventListener("scroll", handleScroll);
-//   }, []);
-
-//   const scrollToTop = () => {
-//     window.scrollTo({ top: 0, behavior: "smooth" });
-//   };
-
-//   return (
-//     <>
-//       {/* Main Footer */}
-//       <footer className="bg-black text-white py-10 px-6 md:px-16">
-//         <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:justify-between md:items-start gap-8">
-//           {/* Brand Info */}
-//           <div className="text-center md:text-left">
-//             <h2 className="text-2xl font-bold text-yellow-400 mb-2">
-//               Trimz Barbers
-//             </h2>
-//             <p className="text-sm text-gray-300 italic">
-//               Sharp Cuts. Fresh Looks. Clean Confidence.
-//             </p>
-//           </div>
-
-//           {/* Quick Links */}
-//           <div className="grid grid-cols-2 sm:grid-cols-2 gap-6 text-sm text-center md:text-left">
-//             <div>
-//               <h3 className="text-yellow-400 font-semibold mb-2 uppercase">
-//                 Services
-//               </h3>
-//               <ul className="space-y-1">
-//                 <li>
-//                   <a href="#" className="hover:text-yellow-400">
-//                     Haircut
-//                   </a>
-//                 </li>
-//                 <li>
-//                   <a href="#" className="hover:text-yellow-400">
-//                     Beard Trim
-//                   </a>
-//                 </li>
-//                 <li>
-//                   <a href="#" className="hover:text-yellow-400">
-//                     Shave
-//                   </a>
-//                 </li>
-//               </ul>
-//             </div>
-//             <div>
-//               <h3 className="text-yellow-400 font-semibold mb-2 uppercase">
-//                 Company
-//               </h3>
-//               <ul className="space-y-1">
-//                 <li>
-//                   <a href="#" className="hover:text-yellow-400">
-//                     About Us
-//                   </a>
-//                 </li>
-//                 <li>
-//                   <a href="#" className="hover:text-yellow-400">
-//                     Contact
-//                   </a>
-//                 </li>
-//                 <li>
-//                   <a href="#" className="hover:text-yellow-400">
-//                     Privacy Policy
-//                   </a>
-//                 </li>
-//               </ul>
-//             </div>
-//           </div>
-
-//           {/* Social Media */}
-//           <div className="text-center md:text-left">
-//             <h3 className="text-yellow-400 font-semibold mb-3 uppercase">
-//               Follow Us
-//             </h3>
-//             <div className="flex justify-center md:justify-start gap-4">
-//               <a
-//                 href="https://facebook.com/yourpage"
-//                 target="_blank"
-//                 rel="noopener noreferrer"
-//                 className="bg-yellow-400 text-black p-3 rounded-full hover:bg-white hover:text-yellow-500 transition"
-//               >
-//                 <FaFacebookF />
-//               </a>
-//               <a
-//                 href="https://wa.me/2349097441714"
-//                 target="_blank"
-//                 rel="noopener noreferrer"
-//                 className="bg-yellow-400 text-black p-3 rounded-full hover:bg-white hover:text-green-500 transition"
-//               >
-//                 <FaWhatsapp />
-//               </a>
-//               <a
-//                 href="https://instagram.com/yourhandle"
-//                 target="_blank"
-//                 rel="noopener noreferrer"
-//                 className="bg-yellow-400 text-black p-3 rounded-full hover:bg-white hover:text-pink-500 transition"
-//               >
-//                 <FaInstagram />
-//               </a>
-//               <a
-//                 href="https://tiktok.com/@yourhandle"
-//                 target="_blank"
-//                 rel="noopener noreferrer"
-//                 className="bg-yellow-400 text-black p-3 rounded-full hover:bg-white hover:text-black transition"
-//               >
-//                 <FaTiktok />
-//               </a>
-//             </div>
-//           </div>
-//         </div>
-
-//         <div className="border-t border-gray-700 mt-10 pt-6 text-center text-sm text-gray-400">
-//           &copy; {new Date().getFullYear()} Trimz Barbers. All rights reserved.
-//         </div>
-//       </footer>
-
-//       {/* Back to Top Button */}
-//       {showButton && (
-//         <button
-//           onClick={scrollToTop}
-//           className="fixed bottom-6 right-6 z-50 bg-yellow-400 text-white p-3 rounded-full shadow-lg hover:bg-white transition duration-300"
-//           aria-label="Back to Top"
-//         >
-//           <FaArrowUp />
-//         </button>
-//       )}
-//     </>
-//   );
-// }
-
 import { FaFacebookF, FaInstagram, FaTiktok, FaWhatsapp } from "react-icons/fa";
+import ShopLogo from "../assets/images/trimz_photo.jpg";
 
 export default function Footer() {
   return (
@@ -182,9 +34,12 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:justify-between gap-10">
           {/* Brand Info */}
           <div className="flex-1 text-center md:text-left">
-            <h2 className="text-3xl font-bold text-yellow-400">
+            {/* <h2 className="text-3xl font-bold text-yellow-400">
               Trimz &apos;n&apos; Style
-            </h2>
+            </h2> */}
+            <a href="#" className="container cursor-pointer">
+              <img src={ShopLogo} alt="shop logo" className="p-2 h-15 w-15" />
+            </a>
             <p className="text-gray-300 mt-2 max-w-sm">
               Sharp Cuts. Fresh Looks. Clean Confidence. Book your next style
               upgrade today.
@@ -197,18 +52,43 @@ export default function Footer() {
               <h3 className="text-yellow-400 font-semibold mb-2">Services</h3>
               <ul className="space-y-1 text-sm text-gray-300">
                 <li>
-                  <a href="#" className="hover:text-yellow-400">
+                  <a href="#appointment" className="hover:text-yellow-400">
                     Haircut
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-yellow-400">
+                  <a href="#appointment" className="hover:text-yellow-400">
                     Beard Trim
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-yellow-400">
+                  <a href="#appointment" className="hover:text-yellow-400">
                     Shave
+                  </a>
+                </li>
+                <li>
+                  <a href="#appointment" className="hover:text-yellow-400">
+                    Hair Wash
+                  </a>
+                </li>
+                <li>
+                  <a href="#appointment" className="hover:text-yellow-400">
+                    Hair Treatment
+                  </a>
+                </li>
+                <li>
+                  <a href="#appointment" className="hover:text-yellow-400">
+                    Facials
+                  </a>
+                </li>
+                <li>
+                  <a href="#appointment" className="hover:text-yellow-400">
+                    Manicure
+                  </a>
+                </li>
+                <li>
+                  <a href="#appointment" className="hover:text-yellow-400">
+                    Pedicure
                   </a>
                 </li>
               </ul>
@@ -217,12 +97,17 @@ export default function Footer() {
               <h3 className="text-yellow-400 font-semibold mb-2">Company</h3>
               <ul className="space-y-1 text-sm text-gray-300">
                 <li>
-                  <a href="#" className="hover:text-yellow-400">
+                  <a href="#about" className="hover:text-yellow-400">
                     About Us
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-yellow-400">
+                  <a
+                    href="https://wa.me/+2349097441714"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-yellow-400"
+                  >
                     Contact
                   </a>
                 </li>

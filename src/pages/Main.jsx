@@ -13,6 +13,9 @@ const Main = () => {
       <About />
       <Services />
       <br />
+      <br />
+      <div className="mt-10 border-t border-gray-700 pt-4 text-center text-sm text-gray-400" />
+      <br />
       <OurBarbers />
       <br />
       <br />

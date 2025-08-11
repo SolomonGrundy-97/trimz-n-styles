@@ -3,17 +3,20 @@
 import { useState } from "react";
 //import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import { IoLogoWindows } from "react-icons/io5";
+// import { IoLogoWindows } from "react-icons/io5";
+import ShopLogo from "../assets/images/trimz_photo.jpg";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
+    // fix the backgriund to be black color
     <nav className="bg-yellow-400 text-white p-4 fixed w-full top-0 z-50 shadow-lg">
       <div className="flex justify-between items-center max-w-7xl mx-auto">
         {/* Logo */}
         <a href="#" className="flex items-center">
-          <IoLogoWindows size={50} />
+          {/* <IoLogoWindows size={50} /> */}
+          <img src={ShopLogo} alt="shop logo" className="p-2 h-20 w-36" />
         </a>
 
         {/* Hamburger / Close Icon (Mobile) */}
@@ -51,6 +54,8 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Fullscreen Menu */}
+      {/* // fix the backgriund to be black color */}
+
       <div
         className={`fixed inset-0 bg-yellow-400 text-white flex flex-col items-center justify-center z-40 transition-transform duration-300 ${
           isOpen ? "translate-x-0" : "translate-x-full"

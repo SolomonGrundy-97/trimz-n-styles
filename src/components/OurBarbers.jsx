@@ -36,7 +36,7 @@ const barbers = [
 
 const Barbers = () => {
   useEffect(() => {
-    AOS.init({ duration: 1000, once: true });
+    AOS.init({ duration: 1000, once: false });
   }, []);
 
   const [selectedBarber, setSelectedBarber] = useState(null);
