@@ -37,12 +37,17 @@
 
 import { useState } from "react";
 import emailjs from "emailjs-com";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaWhatsapp } from "react-icons/fa";
 import AppointmentImg from "../assets/images/post-1.jpg";
 
 const AppointmentSection = () => {
+  const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+  const clientTemplateId = import.meta.env.VITE_EMAILJS_CLIENT_TEMPLATE_ID;
+  const ownerTemplateId = import.meta.env.VITE_EMAILJS_OWNER_TEMPLATE_ID;
+  const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -66,19 +71,19 @@ const AppointmentSection = () => {
     try {
       // Send to Owner
       await emailjs.send(
-        "service_yvnuqvf", // Service ID
-        "template_ruqaseb", // Owner Template ID
+        serviceId, // Service ID
+        ownerTemplateId, // Owner Template ID
         formData,
-        "Vs0a-OEgg5AzkOTHc" // Public Key
+        publicKey // Public Key
       );
       console.log("Owner email sent!");
 
       // Send to Client
       await emailjs.send(
-        "service_yvnuqvf", // Same Service ID
-        "template_vl8b6y9", // Client Template ID
+        serviceId, // Same Service ID
+        clientTemplateId, // Client Template ID
         formData,
-        "Vs0a-OEgg5AzkOTHc" // Same Public Key
+        publicKey // Same Public Key
       );
       console.log("Client email sent!");
 
@@ -87,7 +92,7 @@ const AppointmentSection = () => {
         "😀 Thanks for booking! A confirmation email has been sent to you.",
         {
           position: "top-right",
-          autoClose: 3000,
+          autoClose: 5000,
         }
       );
 
@@ -126,6 +131,8 @@ const AppointmentSection = () => {
       </div>
 
       {/* Right Form */}
+      <ToastContainer position="top-right" autoClose={5000} theme="colored" />
+
       <div className="w-full md:w-1/2 bg-[#1e1e1e] px-6 py-16 md:px-12 lg:px-20 flex flex-col justify-center">
         <h2 className=" text-xl lg:text-4xl text-white font-bold mb-4 leading-normal">
           Make an Appointment

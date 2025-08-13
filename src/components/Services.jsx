@@ -3,36 +3,36 @@ import { useEffect, useRef } from "react";
 // ADD THE ACTUAL IMAGES AND ADJUST THE IMAGE SIZE...
 const images = [
   {
-    src: "/src/assets/images/trimz_photo.jpg",
-    caption: "Trimz Classic Cuts 1",
+    src: "/src/assets/images/barbing.jpg",
+    caption: "Barbing",
   },
   {
-    src: "/src/assets/images/trimz_photo.jpg",
-    caption: "Modern Barbering Styles 2",
+    src: "/src/assets/images/hair-treatment.jpg",
+    caption: "Hair Treatment",
   },
   {
-    src: "/src/assets/images/trimz_photo.jpg",
-    caption: "Your Look, Our Passion 3",
+    src: "/src/assets/images/hairwash.jpg",
+    caption: "Hair Wash",
   },
   {
-    src: "/src/assets/images/trimz_photo.jpg",
-    caption: "Clean, Sharp & Fresh 4",
+    src: "/src/assets/images/shave.webp",
+    caption: "Shave",
   },
   {
-    src: "/src/assets/images/trimz_photo.jpg",
-    caption: "Clean, Sharp & Fresh 5",
+    src: "/src/assets/images/beard-trim1.jpg",
+    caption: "Beard Trim",
   },
   {
-    src: "/src/assets/images/trimz_photo.jpg",
-    caption: "Clean, Sharp & Fresh 6",
+    src: "/src/assets/images/pedicure.jpg",
+    caption: "Pedicure",
   },
   {
-    src: "/src/assets/images/trimz_photo.jpg",
-    caption: "Clean, Sharp & Fresh 7",
+    src: "/src/assets/images/facials1.jpg",
+    caption: "Facials",
   },
   {
-    src: "/src/assets/images/trimz_photo.jpg",
-    caption: "Clean, Sharp & Fresh 8",
+    src: "/src/assets/images/manicure2.jpg",
+    caption: "Manicure",
   },
 ];
 
@@ -56,7 +56,7 @@ export default function Carousel() {
   }, []);
 
   return (
-    <section className="" id="services">
+    <section id="services">
       <p className="text-yellow-400 text-center font-serif text-xl font-bold">
         Our Services
       </p>
@@ -69,8 +69,8 @@ export default function Carousel() {
       <br />
       <br />
 
-      {/* carousels */}
-      <div className="relative overflow-hidden w-full h-60 sm:h-72 md:h-80 group">
+      {/* Carousel */}
+      <div className="relative overflow-hidden w-full h-56 sm:h-64 md:h-72 group">
         <div
           ref={trackRef}
           className="flex w-max"
@@ -90,15 +90,15 @@ export default function Carousel() {
           {carouselImages.map((image, index) => (
             <div
               key={index}
-              className="h-full min-w-[250px] sm:min-w-[300px] md:min-w-[350px] flex-shrink-0 flex flex-col items-center px-2"
+              className="flex-shrink-0 flex flex-col items-center px-2 w-40 sm:w-48 md:w-56"
             >
               <img
                 src={image.src}
-                className="h-3/4 w-full object-cover rounded-md shadow-md"
+                className="w-full sm:w-2/3 md:w-1/2 lg:w-1/3 h-auto object-cover mx-auto rounded-lg"
                 alt={`Slide ${index + 1}`}
               />
-              <p className="mt-2 text-center text-sm sm:text-base text-gray-800 font-medium px-2">
-                {image.caption}
+              <p className="mt-4 text-center text-lg sm:text-base text-yellow-400 font-medium px-2">
+                ⭐ {image.caption} ⭐
               </p>
             </div>
           ))}
