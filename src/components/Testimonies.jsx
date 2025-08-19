@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { FaQuoteLeft, FaStar, FaRegStar, FaQuoteRight } from "react-icons/fa";
+import { FaStar, FaRegStar } from "react-icons/fa";
 
 const testimonials = [
   {
-    name: "David O.",
+    name: "David Obasi.",
     text: "Trimz Barbers gave me the best haircut I’ve had in years. Great vibes and clean cuts!",
     title: "Loyal Customer",
     rating: 5,
@@ -15,10 +15,22 @@ const testimonials = [
     rating: 4,
   },
   {
-    name: "Chuka B.",
+    name: "Chuka Benard.",
     text: "Always on time, clean tools, and great conversation. Highly recommend!",
     title: "Regular Visitor",
     rating: 5,
+  },
+  {
+    name: "Jeniffer James.",
+    text: "I Jenny highly recommend trimz'n'style! 👏",
+    title: "Regular Client",
+    rating: 5,
+  },
+  {
+    name: "Okwudili Okafor.",
+    text: "They know what they are doing!",
+    title: "Happy Client",
+    rating: 4,
   },
 ];
 
@@ -32,8 +44,8 @@ export default function CustomerReviewCarousel() {
       setTimeout(() => {
         setCurrent((prev) => (prev + 1) % testimonials.length);
         setAnimate(true);
-      }, 200); // Short delay before next stars animate in
-    }, 6000);
+      }, 1000); // Short delay before next stars animate in
+    }, 4000);
     return () => clearInterval(interval);
   }, []);
 

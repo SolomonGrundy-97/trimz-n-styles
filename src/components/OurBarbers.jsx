@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import Zion from "../assets/images/team-1.jpg";
-import Stanley from "../assets/images/team-2.jpg";
-import Solomon from "../assets/images/team-3.jpg";
-import Yusuf from "../assets/images/team-4.jpg";
+import Zion from "../assets/images/zion1.jpg";
+import Stanley from "../assets/images/stanley.jpg";
+import Solomon from "../assets/images/solo4.jpg";
+//import Yusuf from "../assets/images/team-4.jpg";
 import { AiOutlineClose } from "react-icons/ai";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -10,28 +10,28 @@ import "aos/dist/aos.css";
 const barbers = [
   {
     name: "Zion",
-    title: "Senior Barber",
+    title: "Hair Stylist",
     image: Zion,
-    bio: "Zion has over 10 years of experience creating classic and modern cuts for all hair types. He’s known for his precision and warm personality.",
+    bio: "I’m Zion, a skilled grooming and beauty specialist dedicated to helping you look sharp and feel confident. With hands-on experience in *barbing, pedicures, manicures, and facials*, I bring precision, creativity, and care to every service.",
   },
   {
     name: "Stanley",
     title: "Hair Stylist",
     image: Stanley,
-    bio: "Stanley is passionate about creative hairstyles and specializes in styling, coloring, and trendy haircuts for both men and women.",
+    bio: "Stanley is passionate about creative hairstyles and specializes in *styling, coloring, pedicure, manicure, facials and trendy haircuts* for both men and women.",
   },
   {
     name: "Solomon",
-    title: "Beard Expert",
+    title: "Hair Stylist / Beauty Therapist",
     image: Solomon,
-    bio: "Solomon is a beard grooming master. From trims to full beard makeovers, he brings out the best look in every client.",
+    bio: "I am a skilled barber, hairstylist, and beauty therapist with hands-on experience in grooming and personal care. I specialize in *precision haircuts, beard-trim/carving, hairstyling & tinting, pedicures, and facials*, offering clients a complete grooming and beauty experience. With a passion for style and wellness, I combine creativity and professional techniques to help clients look and feel their best.",
   },
-  {
-    name: "Yusuf",
-    title: "Fade Specialist",
-    image: Yusuf,
-    bio: "Yusuf is known for his skin fades and fresh cuts. His attention to detail ensures every client leaves sharp and satisfied.",
-  },
+  // {
+  //   name: "Yusuf",
+  //   title: "Fade Specialist",
+  //   image: Yusuf,
+  //   bio: "Yusuf is known for his skin fades and fresh cuts. His attention to detail ensures every client leaves sharp and satisfied.",
+  // },
 ];
 
 const Barbers = () => {
@@ -68,9 +68,8 @@ const Barbers = () => {
                 data-aos-delay={index * 200}
               />
 
-              {/* "Click Me" Overlay 
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <span className="bg-black/60 text-white py-2 px-4 rounded-md text-sm font-semibold shadow-lg">
+              {/* <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <span className="bg-black/60 text-yellow-400 py-2 px-4 rounded-md text-sm font-semibold shadow-lg">
                   Click Me
                 </span>
               </div> */}

@@ -113,7 +113,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <a href="#" className="hover:text-yellow-400">
-                    Privacy Policy
+                    Prcing
                   </a>
                 </li>
               </ul>

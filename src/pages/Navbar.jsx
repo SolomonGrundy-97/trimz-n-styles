@@ -1,9 +1,7 @@
 "use client";
 
 import { useState } from "react";
-//import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-// import { IoLogoWindows } from "react-icons/io5";
 import ShopLogo from "../assets/images/trimz_photo.jpg";
 
 export default function Navbar() {

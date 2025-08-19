@@ -22,25 +22,17 @@ const AboutSection = () => {
         {/* Description */}
         <p className="text-white text-lg md:text-xl leading-relaxed">
           Experience the perfect blend of classic and modern grooming at{" "}
-          <strong>Your Barber Shop Name</strong>. Our expert barbers specialize
-          in precision cuts, stylish beard trims, and relaxing hot towel shaves.
-          Enjoy a welcoming atmosphere, a curated playlist, and top-tier
-          grooming products. Sit back, relax, and leave feeling fresh and
-          confident.
+          <strong>TRIMZ &apos;N&apos; STYLE</strong>. Our expert barbers
+          specialize in precision cuts, stylish beard trims, and relaxing hot
+          towel shaves. Enjoy a welcoming atmosphere, a curated playlist, and
+          top-tier grooming products. Sit back, relax, and leave feeling fresh
+          and confident.
         </p>
 
         {/* Divider */}
         <div className="w-24 h-1 bg-yellow-400 mx-auto my-6"></div>
         <br />
         <br />
-
-        {/* Button 
-        <Link
-          to="/book"
-          className="bg-yellow-400 text-green-900 px-6 py-3 rounded-md text-lg font-bold shadow-md hover:bg-yellow-500 transition duration-300"
-        >
-          BOOK NOW
-        </Link> */}
       </div>
     </section>
   );
