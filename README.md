@@ -69,5 +69,4 @@ For inquiries or bookings, reach us at:
 Email: uzosolos@gmail.com
 
 Phone/WhatsApp: +2349012202360
-
 ```
