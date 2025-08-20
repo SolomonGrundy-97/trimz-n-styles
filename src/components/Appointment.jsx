@@ -188,7 +188,7 @@ const AppointmentSection = () => {
               {isBooking ? "BOOKING..." : "MAKE APPOINTMENT"}
             </button>
             <a
-              href="https://wa.me/+2349097441714"
+              href="https://wa.me/+2347035935922"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-800 text-white rounded-md shadow-md transition duration-300"

@@ -6,7 +6,7 @@ This is a **barbing and beauty salon web application** built with **React** and 
 
 ## 🚀 Live Demo
 
-👉 [View Website Here](https://your-website-link.com)
+👉 [View Website Here](https://trimz-n-styles.vercel.app/)
 
 ---
 
